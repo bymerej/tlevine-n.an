@@ -1,0 +1,9 @@
+[ui]
+username = {{full name}} <{{email address}}>
+verbose = True
+
+[extensions]
+graphlog=
+eol=
+rebase=
+purge=
