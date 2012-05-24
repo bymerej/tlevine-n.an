@@ -16,11 +16,17 @@ the path) to build them. You will be prompted to fill in the variables,
 and the resulting files will be placed in `~`.
 
 ### Writing templates
-The templates have the personal information replaced with
-curly-brace-enclosed variables. For example, `.gitconfig` looks like this.
+"Templates" just are normal files with variables indicated by
+double-curly-brace-enclosed variables. For example, `.gitconfig`
+looks like this.
 
     [user]
     name = {{fullname}}
     email = {{emailaddress}}
 
+Here are the rules.
 
+* Variables are defined by a phrase enclosed in a pair of double curly braces.
+* One line have no more than one variable.
+* Variables can contain any character aside from a newline, so spaces
+  and curly braces are allowed.
