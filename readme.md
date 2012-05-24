@@ -12,11 +12,12 @@ Some dotfiles contain private things, like passwords, or things
 that are only relevant to one person, like email addresses. These
 dotfiles are stored in dotfile-templates. Run `~/bin/mkdotfiles`
 (or just `make_dotfiles` because the `.bashrc` adds `~/bin` to
-the path) to build them.
+the path) to build them. You will be prompted to fill in the variables,
+and the resulting files will be placed in `~`.
 
-with the personal
-information replaced with curly-brace-enclosed variables. For example,
-`.gitconfig` looks like this.
+### Writing templates
+The templates have the personal information replaced with
+curly-brace-enclosed variables. For example, `.gitconfig` looks like this.
 
     [user]
     name = {{fullname}}

@@ -13,6 +13,7 @@
   # Variables cannot span multiple lines.
   # Variables can contain spaces.
 
+PROMPT_ON_SKIP=true
 set -e
 TEMPLATES=~/dotfile-templates
 
@@ -28,6 +29,18 @@ TEMPLATES=~/dotfile-templates
     fi
 
     # Put it in ~
+    if [ -e ~/"$dotfile" ]; then
+      clear
+      echo
+      echo "~/$dotfile already exists, so I'm skipping it."
+      echo "Move or delete ~/$dotfile if you would like to make it."
+      if $PROMPT_ON_SKIP; then
+        echo
+        echo Press Enter to continue.
+        read
+      fi
+      continue
+    fi  
     cp "$dotfile" ~/"$dotfile"
 
     while true; do
