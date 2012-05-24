@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Render basic dotfile templates from ~/.dotfiles to ~
+# Render basic dotfile templates from ~/dotfiles-templates to ~
 # By Thomas Levine (http://thomaslevine.com)
 
 # Some of my dotfiles have private information in them. This script
@@ -14,7 +14,7 @@
   # Variables can contain spaces.
 
 set -e
-TEMPLATES=~/.dotfiles
+TEMPLATES=~/dotfile-templates
 
 # Make sure the templates directory exists and contains files
 [ -e "$TEMPLATES" ] && [ -z "`ls $TEMPLATES`" ] || exit 1
@@ -30,18 +30,30 @@ TEMPLATES=~/.dotfiles
     # Put it in ~
     cp "$dotfile" ~/"$dotfile"
 
-    echo
     while true; do
       # Variable name
       key="`sed -n \"s/.*{{\(.*\)}}.*/\1/p\" ~/\"$dotfile\"|sed -n '1 p'`"
 
-      [ ! -z "$key" ] || break 
+      clear
+      if [ -z "$key" ]; then
+        echo
+        echo --------------------------------------------------
+        echo "$dotfile"
+        echo --------------------------------------------------
+        cat ~/"$dotfile"
+        echo --------------------------------------------------
+        echo
+        echo "$dotfile" is all filled. Press enter to contiue.
+        read
+        break
+      fi
 
-      echo -----
+      echo
+      echo --------------------------------------------------
       echo "$dotfile"
-      echo -----
-      grep --color -A2 -B2 "$key" ~/"$dotfile"
-      echo -----
+      echo --------------------------------------------------
+      grep --color -A10 -B10 "$key" ~/"$dotfile"
+      echo --------------------------------------------------
       echo
 
       echo What\'s the "$key"?
