@@ -11,7 +11,7 @@ to them and commit them.
 Some dotfiles contain private things, like passwords, or things
 that are only relevant to one person, like email addresses. These
 dotfiles are stored in dotfile-templates. Run `~/bin/mkdotfiles`
-(or just `make_dotfiles` because the `.bashrc` adds `~/bin` to
+(or just `mkdotfiles` because the `.bashrc` adds `~/bin` to
 the path) to build them. You will be prompted to fill in the variables,
 and the resulting files will be placed in `~`.
 
