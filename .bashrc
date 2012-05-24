@@ -1,0 +1,1 @@
+Documents/install/dotfiles/.bashrc
