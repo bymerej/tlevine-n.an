@@ -6,5 +6,3 @@ export PATH="${PATH}${PATH+:}~/bin"
 
 export R_HISTFILE=~/.Rhistory
 export EDITOR=vim
-
-
