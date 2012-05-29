@@ -1,26 +1,47 @@
 [general]
 # This should contain a comma delimited list of all identifiers of the accounts
 # that are to be synced
-accounts = main
+accounts = perluette@thomaslevine.com thomas@scraperwiki.com
 # If there are two accounts; `main' and `alternative'...
 #accounts = main,alternative
 
-[Account main]
-# The identifier for the local repository; e.g., the maildir that offlineimap
-# will sync with an IMAP server
-localrepository = main-local
-# The identifier for the remote repository. This is the actual IMAP, which is
-# usually foreign to the system
-remoterepository = main-remote
+[Account perluette@thomaslevine.com]
+localrepository =perluette@thomaslevine.com-local
+remoterepository = perluette@thomaslevine.com-remote
+# Use SQLite rather than plain text
+status_backend = sqlite
 
-[Repository main-local]
-# Currently, offlineimap only supports maildir and IMAP for local repositories
+[Repository perluette@thomaslevine.com-local]
 type = Maildir
-# Where should the mail be placed?
-localfolders = ~/Maildir
+localfolders = ~/Maildir/perluette@thomaslevine.com
 
-[Repository main-remote]
-# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP
+[Repository perluette@thomaslevine.com-remote]
 type = Gmail 
-remotehost = {{host.domain.tld}}
-remoteuser = {{username}}
+remotehost = imap.gmail.com
+remoteuser = perluette@thomaslevine.com
+remotepass = {{perluette@thomaslevine.com password}}
+
+
+
+[Account thomas@scraperwiki.com]
+localrepository =thomas@scraperwiki.com-local
+remoterepository = thomas@scraperwiki.com-remote
+# Use SQLite rather than plain text
+status_backend = sqlite
+
+[Repository thomas@scraperwiki.com-local]
+type = Maildir
+localfolders = ~/Maildir/thomas@scraperwiki.com
+
+[Repository thomas@scraperwiki.com-remote]
+type = Gmail 
+remotehost = imap.gmail.com
+remoteuser = thomas@scraperwiki.com
+remotepass = {{thomas@scraperwiki.com password}}
+
+
+
+
+# 1.2.3   How do I prevent certain folders from being synced?¶
+# Use the folderfilter option. See the MANUAL for details and examples.
+# http://docs.offlineimap.org/en/latest/FAQ.html
