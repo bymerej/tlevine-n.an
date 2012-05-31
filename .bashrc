@@ -15,10 +15,17 @@ export HISTSIZE=1000000
 # Ten gigabytes of maximum history size
 export HISTFILESIZE=10000000000
 
+# Save timestamps in the history.
+export HISTTIMEFORMAT="[%F %T %Z]" 
+
+# Append continuously
+# http://ask.fedoraproject.org/question/18/how-to-keep-history-commands-in-sync-across
+shopt -s histappend
+PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -n"
+
 echo
 echo 'Remember to start these things up after boot.'
 echo ' - Wetlands project notices scraper'
-echo ' - Irc It'
 echo
 echo 'And also just make a service that starts them properly.'
 echo
