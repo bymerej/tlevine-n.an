@@ -9,6 +9,12 @@ export PATH="${PATH}${PATH+:}~/bin"
 # http://mywiki.wooledge.org/glob
 shopt -s extglob
 
+# One million commands of history per session
+export HISTSIZE=1000000
+
+# Ten gigabytes of maximum history size
+export HISTFILESIZE=10000000000
+
 echo
 echo 'Remember to start these things up after boot.'
 echo ' - Wetlands project notices scraper'
