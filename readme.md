@@ -3,7 +3,7 @@ Noncomprehensive Dotfile Archive Network (n.an)
 This stores both public and private dotfiles.
 
 ### Public dotfiles
-Unpack n.an to your home director; when you do that, the public
+Unpack n.an to your home directory; when you do that, the public
 dotfiles will be created there, and you can already make updates
 to them and commit them.
 
